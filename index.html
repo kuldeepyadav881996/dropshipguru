@@ -131,9 +131,10 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 16% 18%, rgba(247, 184, 36, 0.11), transparent 24%),
-    radial-gradient(circle at 84% 12%, rgba(20, 168, 255, 0.13), transparent 26%),
-    linear-gradient(180deg, #030407 0%, #070b14 48%, #0b0f1a 100%);
+    radial-gradient(circle at 14% 14%, rgba(247, 184, 36, 0.16), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(20, 168, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 50% 82%, rgba(36, 213, 106, 0.08), transparent 30%),
+    linear-gradient(180deg, #030407 0%, #08111d 44%, #0c1018 100%);
   color: var(--text);
   font-family: "DM Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-x: hidden;
@@ -351,11 +352,12 @@ img {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
   min-height: 76px;
   padding: 14px clamp(18px, 5vw, 72px);
-  background: rgba(3, 4, 7, 0.88);
+  text-align: center;
+  background: rgba(3, 8, 15, 0.9);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
 }
@@ -397,6 +399,8 @@ img {
 nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 24px;
 }
 
@@ -818,6 +822,7 @@ nav a:hover {
 
 .process-section,
 .plans-section,
+.reviews-section,
 .faq-section {
   width: 100%;
   max-width: none;
@@ -839,6 +844,7 @@ nav a:hover {
 .step,
 .audience-card,
 .plan-card,
+.review-card,
 .faq-item,
 .lead-shell,
 .offer-panel,
@@ -919,72 +925,282 @@ nav a:hover {
 
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  width: min(1040px, 100%);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  width: min(1180px, 100%);
   margin: 0 auto;
+}
+
+.plans-section {
+  position: relative;
+  overflow: hidden;
+  color: #17172a;
+  background:
+    linear-gradient(135deg, rgba(99, 123, 255, 0.08) 0 1px, transparent 1px 11px),
+    radial-gradient(circle at 50% 0%, rgba(99, 123, 255, 0.12), transparent 26%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+}
+
+.plans-section .section-head h2,
+.plans-section .section-head p {
+  color: #17172a;
+}
+
+.plans-section .section-head .pill {
+  color: #2847ff;
+  background: rgba(82, 109, 255, 0.1);
+  border-color: rgba(82, 109, 255, 0.24);
 }
 
 .plan-card {
   position: relative;
-  padding: 30px;
+  min-height: 486px;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 24px;
+  overflow: hidden;
+  color: #202236;
+  border: 1px solid rgba(83, 109, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 42px rgba(48, 67, 108, 0.1);
 }
 
 .plan-card.popular {
-  border-color: rgba(247, 184, 36, 0.68);
-  background: linear-gradient(145deg, rgba(247, 184, 36, 0.1), rgba(20, 168, 255, 0.05));
+  border-color: rgba(82, 109, 255, 0.9);
+  box-shadow: 0 24px 60px rgba(82, 109, 255, 0.16);
+}
+
+.plan-card.diamond {
+  grid-column: 1 / span 1;
+  color: #fff;
+  background: linear-gradient(180deg, #191d36 0%, #151b33 100%);
+  border-color: rgba(82, 109, 255, 0.34);
+  box-shadow: 0 26px 64px rgba(13, 18, 42, 0.34);
 }
 
 .plan-tag {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  padding: 6px 10px;
+  top: 14px;
+  right: -42px;
+  width: 150px;
+  padding: 7px 10px;
   border-radius: 8px;
-  color: #06110b;
-  background: var(--gold);
-  font-size: 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #526dff, #7f69ff);
+  font-size: 10px;
   font-weight: 900;
+  text-align: center;
+  transform: rotate(45deg);
 }
 
-.plan-card strong {
+.plan-card.diamond .plan-tag {
+  top: 16px;
+  left: 18px;
+  right: auto;
+  width: auto;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff5fb4, #ff7bd4);
+  transform: none;
+}
+
+.plan-card h3 {
+  margin: 0 0 12px;
+  text-align: center;
+  color: inherit;
+  font-size: 22px;
+}
+
+.plan-card.diamond h3 {
+  margin-top: 26px;
+}
+
+.plan-card strong,
+.plan-price {
   display: block;
-  margin: 14px 0 6px;
-  font-size: 52px;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  font-size: clamp(42px, 4.5vw, 58px);
   line-height: 1;
-  color: var(--gold);
-  font-family: "Bebas Neue", Impact, sans-serif;
-  letter-spacing: 1px;
+  color: #17172a;
+  background: transparent;
+  font-family: "DM Sans", Inter, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-align: center;
 }
 
-.plan-card strong small {
+.plan-price {
+  cursor: pointer;
+}
+
+.plan-price .currency {
+  color: #4167ff;
+  font-size: 18px;
+  vertical-align: 18px;
+}
+
+.plan-price .price-term {
+  color: #60677a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.plan-old-price {
+  display: block;
+  min-height: 17px;
+  margin-bottom: 24px;
+  color: #687086;
+  text-align: center;
+  font-size: 12px;
+}
+
+.plan-price:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+.plan-card strong small,
+.plan-price small {
   font-size: 26px;
 }
 
 .plan-card ul {
   display: grid;
-  gap: 12px;
-  margin: 24px 0;
+  gap: 17px;
+  margin: 24px 0 28px;
   padding: 0;
   list-style: none;
+  border-top: 1px solid rgba(22, 24, 45, 0.08);
+  padding-top: 28px;
 }
 
 .plan-card li {
-  color: #fff2d2;
-  font-size: 14px;
+  color: #3f465a;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .plan-card li::before {
-  content: "âœ“";
-  color: var(--gold);
-  margin-right: 8px;
+  content: "\2713";
+  color: #37d272;
+  margin-right: 10px;
   font-weight: 900;
 }
 
 .plan-card a {
+  margin-top: auto;
   width: 100%;
+  color: #526dff;
+  background: transparent;
+  border: 1px solid #526dff;
+}
+
+.plan-card a.plan-price {
+  width: auto;
+  min-height: 0;
+  margin-top: 0;
+  color: #17172a;
+  background: transparent;
+  border: 0;
+  text-decoration: none;
+}
+
+.plan-card a.plan-price:hover {
+  color: #526dff;
+}
+
+.plan-card.diamond .plan-price,
+.plan-card.diamond a.plan-price {
+  color: #fff;
+}
+
+.plan-card.diamond .plan-price .price-term,
+.plan-card.diamond .plan-old-price,
+.plan-card.diamond li {
+  color: #e5e8ff;
+}
+
+.plan-card.diamond ul {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.plan-card.diamond > a:not(.plan-price) {
+  color: #8ea0ff;
+  border-color: #526dff;
+}
+
+.reviews-section {
+  border-top: 0;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.review-card {
+  position: relative;
+  min-height: 292px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 26px;
+  background:
+    linear-gradient(145deg, rgba(247, 184, 36, 0.09), rgba(20, 168, 255, 0.055)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.review-rating {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.review-card p {
+  margin: 0;
+  color: #fff4d8;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.review-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.review-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(247, 184, 36, 0.38);
+  border-radius: 8px;
   color: #06110b;
-  background: linear-gradient(180deg, #ffe58a, var(--gold));
+  background: linear-gradient(180deg, #fff0a3, var(--gold));
+  font-weight: 900;
+}
+
+.review-person strong,
+.review-person span {
+  display: block;
+}
+
+.review-person span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .proof-section {
@@ -1093,12 +1309,14 @@ nav a:hover {
 footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
   padding: 36px clamp(18px, 5vw, 72px);
   border-top: 1px solid var(--line);
   color: var(--muted);
+  text-align: center;
   background: rgba(0, 0, 0, 0.28);
 }
 
@@ -1110,6 +1328,7 @@ footer p {
 footer div:last-child {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
 }
 
@@ -1379,6 +1598,15 @@ footer a:hover {
   background: var(--line);
 }
 
+.lead-inline {
+  display: none;
+}
+
+.lead-inline.form-open,
+.lead-inline:target {
+  display: block;
+}
+
 @media (max-width: 980px) {
   .hero-inner,
   .lead-shell {
@@ -1396,7 +1624,8 @@ footer a:hover {
   }
 
   .category-grid,
-  .plans-grid {
+  .plans-grid,
+  .reviews-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1479,6 +1708,7 @@ footer a:hover {
   .audience-grid,
   .category-grid,
   .plans-grid,
+  .reviews-grid,
   .field-row {
     grid-template-columns: 1fr;
   }
@@ -1549,6 +1779,7 @@ footer a:hover {
       <a href="#categories">Categories</a>
       <a href="#how">How It Works</a>
       <a href="#plans">Plans</a>
+      <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#lead-form" class="nav-cta">Start Now</a>
     </nav>
@@ -1709,67 +1940,77 @@ footer a:hover {
         <p>Har plan mein free consultation, niche guidance and launch roadmap included hai.</p>
       </div>
       <div class="plans-grid">
-        <article class="plan-card reveal">
-          <h3>Silver Plan</h3>
-          <strong><small></small>599</strong>
-          <p>For beginners testing one category.</p>
+        <article class="plan-card reveal" data-plan="Silver">
+          <h3>Silver</h3>
+          <a href="#lead-form" class="plan-price" data-plan="Silver"><span class="currency">&#8377;</span>599 <span class="price-term">/year</span></a>
+          <span class="plan-old-price">&nbsp;</span>
           <ul>
-            <li>1 category roadmap</li>
-            <li>20 product ideas</li>
-            <li>Basic marketplace guidance</li>
-            <li>WhatsApp support</li>
+            <li>12 Months Access</li>
+            <li>20 Products/year</li>
+            <li>WhatsApp Community</li>
+            <li>Zero Inventory Model</li>
+            <li>Shipping Managed</li>
+            <li>WhatsApp Mastery Course</li>
           </ul>
-          <a href="#lead-form">Get Started</a>
+          <a href="#lead-form" data-plan="Silver">Get Started</a>
         </article>
-        <article class="plan-card reveal">
-          <h3>Gold Plan</h3>
-          <strong><small></small>1299</strong>
-          <p>For beginners testing one category.</p>
+        <article class="plan-card popular reveal" data-plan="Gold">
+          <span class="plan-tag">Most Popular</span>
+          <h3>Gold</h3>
+          <a href="#lead-form" class="plan-price" data-plan="Gold"><span class="currency">&#8377;</span>1,299 <span class="price-term">/year</span></a>
+          <del class="plan-old-price">&#8377;3,000</del>
           <ul>
-            <li>1 category roadmap</li>
-            <li>20 product ideas</li>
-            <li>Basic marketplace guidance</li>
-            <li>WhatsApp support</li>
+            <li>40 Products/year</li>
+            <li>All Silver Benefits</li>
+            <li>Instagram + Facebook + WhatsApp</li>
+            <li>Zero Inventory Model</li>
+            <li>Shipping Managed</li>
+            <li>Social Media Mastery Course</li>
           </ul>
-          <a href="#lead-form">Get Started</a>
+          <a href="#lead-form" data-plan="Gold">Get Started</a>
         </article>
-        <article class="plan-card reveal">
+        <article class="plan-card reveal" data-plan="Platinum">
           <h3>Platinum</h3>
-          <strong><small></small>3,999</strong>
-          <p>For beginners testing one category.</p>
+          <a href="#lead-form" class="plan-price" data-plan="Platinum"><span class="currency">&#8377;</span>3,999 <span class="price-term">/year</span></a>
+          <del class="plan-old-price">&#8377;10,000</del>
           <ul>
-            <li>1 category roadmap</li>
-            <li>35 product ideas</li>
-            <li>Basic marketplace guidance</li>
-            <li>WhatsApp support</li>
+            <li>Amazon/Flipkart/Meesho</li>
+            <li>40 Products Listed Monthly</li>
+            <li>Zero Inventory Model</li>
+            <li>No Product Purchase</li>
+            <li>Shipping Managed</li>
+            <li>Marketplace Mastery Course</li>
           </ul>
-          <a href="#lead-form">Get Started</a>
+          <a href="#lead-form" data-plan="Platinum">Get Started</a>
         </article>
-        <article class="plan-card popular reveal">
-          <span class="plan-tag">Popular</span>
+        <article class="plan-card reveal" data-plan="Platinum Plus">
+          <h3>Platinum Plus</h3>
+          <a href="#lead-form" class="plan-price" data-plan="Platinum Plus"><span class="currency">&#8377;</span>6,999 <span class="price-term">/year</span></a>
+          <del class="plan-old-price">&#8377;16,000</del>
+          <ul>
+            <li>Amazon International</li>
+            <li>40 Products Monthly</li>
+            <li>Zero Inventory Model</li>
+            <li>Worldwide Shipping</li>
+            <li>No Product Purchase</li>
+            <li>Global Selling Course</li>
+          </ul>
+          <a href="#lead-form" data-plan="Platinum Plus">Get Started</a>
+        </article>
+        <article class="plan-card diamond reveal" data-plan="Diamond">
+          <span class="plan-tag">Diamond</span>
           <h3>Diamond</h3>
-          <strong><small></small>5,999</strong>
-          <p>For serious sellers launching faster.</p>
+          <a href="#lead-form" class="plan-price" data-plan="Diamond"><span class="currency">&#8377;</span>9,999 <span class="price-term">/year</span></a>
+          <span class="plan-old-price">&nbsp;</span>
           <ul>
-            <li>1 category roadmap</li>
-            <li>35 product ideas</li>
-            <li>Listing and pricing guidance</li>
-            <li>Priority WhatsApp support</li>
+            <li>Full eCommerce Website</li>
+            <li>Mobile-Friendly Design</li>
+            <li>40 Products Monthly</li>
+            <li>Ready-to-Use Store</li>
+            <li>Zero Inventory Model</li>
+            <li>Shipping Managed</li>
           </ul>
-          <a href="#lead-form">Get Started</a>
-        </article>
-        <article class="plan-card reveal">
-          <h3>Infinity</h3>
-          <strong><small></small>9,999</strong>
-          <p>For serious sellers launching faster.</p>
-          <ul>
-            <li>Premium category research</li>
-            <li>50 product ideas</li>
-            <li>Ads and catalog guidance</li>
-            <li>Dedicated launch manager</li>
-          </ul>
-          <a href="#lead-form">Get Started</a>
-          
+          <a href="#lead-form" data-plan="Diamond">Get Started</a>
         </article>
       </div>
     </section>
@@ -1784,6 +2025,82 @@ footer a:hover {
           <a href="#lead-form" class="btn primary">Claim Free Consultation</a>
           <a href="https://wa.me/917428329102" target="_blank" rel="noopener" class="btn ghost">Talk on WhatsApp</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" id="reviews">
+      <div class="section-head reveal">
+        <span class="pill">Customer Reviews</span>
+        <h2>Real Results, Real Sellers</h2>
+        <p>Students aur sellers ne Dropship Guru ke roadmap se store setup, category selection aur launch confidence gain kiya.</p>
+      </div>
+      <div class="reviews-grid">
+        <article class="review-card reveal">
+          <div class="review-rating">***** 5.0</div>
+          <p>"Main bilkul beginner thi. Dropship Guru ne product category, listing aur launch steps clear kar diye. Consultation ke baad mujhe pata tha pehle week mein kya karna hai."</p>
+          <div class="review-person">
+            <span class="review-avatar">RS</span>
+            <div>
+              <strong>Riya S.</strong>
+              <span>Jaipur - Starter Plan</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <div class="review-rating">***** 5.0</div>
+          <p>"Store setup aur supplier selection pe jo guidance mili, usse confusion kam ho gaya. Ab main inventory kharide bina test orders handle kar pa raha hoon."</p>
+          <div class="review-person">
+            <span class="review-avatar">AV</span>
+            <div>
+              <strong>Aman V.</strong>
+              <span>Delhi - Growth Plan</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <div class="review-rating">***** 5.0</div>
+          <p>"Jewellery category choose karne mein help mili. Product photos, pricing aur marketplace listing ka process simple language mein samjhaya."</p>
+          <div class="review-person">
+            <span class="review-avatar">NP</span>
+            <div>
+              <strong>Neha P.</strong>
+              <span>Pune - Category Guidance</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <div class="review-rating">***** 4.9</div>
+          <p>"Mera offline fashion business tha, online launch ka roadmap nahi tha. Team ne categories aur ad testing plan clear kiya."</p>
+          <div class="review-person">
+            <span class="review-avatar">RK</span>
+            <div>
+              <strong>Rahul K.</strong>
+              <span>Surat - Store Launch</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <div class="review-rating">***** 5.0</div>
+          <p>"Free consultation genuinely useful thi. Mujhe plan, investment estimate aur daily action list mil gayi."</p>
+          <div class="review-person">
+            <span class="review-avatar">SA</span>
+            <div>
+              <strong>Simran A.</strong>
+              <span>Lucknow - Free Consultation</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card reveal">
+          <div class="review-rating">***** 5.0</div>
+          <p>"WhatsApp support fast tha. Store launch se pehle doubts solve ho gaye aur product selection ka confidence aa gaya."</p>
+          <div class="review-person">
+            <span class="review-avatar">VM</span>
+            <div>
+              <strong>Vivek M.</strong>
+              <span>Indore - Launch Support</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1887,9 +2204,11 @@ footer a:hover {
             <label for="plan">Interested Plan</label>
             <select id="plan" name="plan" required>
               <option value="">Select plan</option>
-              <option>Starter</option>
-              <option>Growth</option>
-              <option>Advanced</option>
+              <option>Silver</option>
+              <option>Gold</option>
+              <option>Platinum</option>
+              <option>Platinum Plus</option>
+              <option>Diamond</option>
               <option>Need Consultation First</option>
             </select>
           </div>
@@ -2016,8 +2335,9 @@ document.querySelectorAll(".faq-item button").forEach((button) => {
   });
 });
 
-// Step 1: Deploy google-apps-script.gs as a Google Apps Script Web App.
-// Step 2: Paste the deployed Web App URL below.
+// Step 1: Open your Google Sheet > Extensions > Apps Script.
+// Step 2: Paste google-apps-script.gs, deploy it as a Web App, and allow Anyone access.
+// Step 3: Paste the deployed Web App URL below.
 const GOOGLE_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_APPS_SCRIPT_WEB_APP_URL_HERE";
 
 const form = document.getElementById("leadForm");
@@ -2028,19 +2348,49 @@ const params = new URLSearchParams(window.location.search);
 const categoryParam = params.get("category");
 const planParam = params.get("plan");
 
-if (categoryParam) {
-  setSelectValue("category", categoryParam);
-}
-
-if (planParam) {
-  setSelectValue("plan", planParam);
-}
+const PLAN_AMOUNTS = {
+  Silver: "599",
+  Gold: "1299",
+  Platinum: "3999",
+  "Platinum Plus": "6999",
+  Diamond: "9999"
+};
 
 function setSelectValue(id, value) {
   const select = document.getElementById(id);
   if (!select) return;
   const option = [...select.options].find((item) => item.value.toLowerCase() === value.toLowerCase());
   if (option) select.value = option.value;
+}
+
+function openLeadForm({ plan = "", category = "" } = {}) {
+  const section = document.getElementById("lead-form");
+  if (!section) return;
+  section.classList.add("form-open");
+  section.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+  if (plan) setSelectValue("plan", plan);
+  if (category) setSelectValue("category", category);
+  if (window.location.hash !== "#lead-form") {
+    history.replaceState(null, "", "#lead-form");
+  }
+  setTimeout(() => {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 30);
+}
+
+document.querySelectorAll('a[href="#lead-form"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    const plan = link.dataset.plan || link.closest(".plan-card")?.dataset.plan || "";
+    const category =
+      link.dataset.category ||
+      link.closest(".category-card")?.querySelector("h3")?.textContent?.trim() ||
+      (link.closest(".category-chips") ? link.textContent.trim() : "");
+    openLeadForm({ plan, category });
+  });
+});
+
+if (window.location.hash === "#lead-form" || categoryParam || planParam) {
+  openLeadForm({ plan: planParam || "", category: categoryParam || "" });
 }
 
 function showStatus(message, type = "") {
@@ -2053,6 +2403,7 @@ function getPayload() {
   const data = new FormData(form);
   const payload = Object.fromEntries(data.entries());
   payload.phone = String(payload.phone || "").replace(/\D/g, "");
+  payload.planAmount = PLAN_AMOUNTS[payload.plan] || "";
   payload.source = "Dropship Guru Website";
   payload.pageUrl = window.location.href;
   payload.submittedAt = new Date().toISOString();
@@ -2126,14 +2477,19 @@ form?.addEventListener("submit", async (event) => {
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #0d1117;
-      font-family: 'Poppins', sans-serif;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(247, 184, 36, 0.16), transparent 24%),
+        radial-gradient(circle at 86% 12%, rgba(20, 168, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 50% 82%, rgba(36, 213, 106, 0.08), transparent 30%),
+        linear-gradient(180deg, #030407 0%, #08111d 44%, #0c1018 100%);
+      font-family: "DM Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     footer {
       background: #0d1117;
       color: #ccc;
       padding: 60px 80px 30px;
+      text-align: center;
     }
 
     .footer-top {
@@ -2142,6 +2498,7 @@ form?.addEventListener("submit", async (event) => {
       gap: 40px;
       padding-bottom: 40px;
       border-bottom: 1px solid #2a2a3a;
+      justify-items: center;
     }
 
     /* Logo */
@@ -2207,7 +2564,7 @@ form?.addEventListener("submit", async (event) => {
     .footer-bottom {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding-top: 28px;
       flex-wrap: wrap;
       gap: 16px;
@@ -2215,6 +2572,7 @@ form?.addEventListener("submit", async (event) => {
 
     .social-links {
       display: flex;
+      justify-content: center;
       gap: 10px;
     }
 
@@ -2247,6 +2605,8 @@ form?.addEventListener("submit", async (event) => {
 
     .footer-legal {
       display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
