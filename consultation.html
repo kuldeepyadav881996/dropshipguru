@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started - Dropship Guru | Free Consultation</title>
+<meta name="description" content="Book your free dropshipping consultation with Dropship Guru. Start your online business today.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Fraunces:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0d0f; --panel: #0d121d; --text: #fffaf0; --muted: #c7c0ad;
+  --blue: #14a8ff; --gold: #f7b824; --gold-dark: #d88a00; --green: #25d366;
+  --line: rgba(247, 184, 36, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; background: #0c0d0f; color: var(--text);
+  font-family: "DM Sans", system-ui, sans-serif; overflow-x: hidden; isolation: isolate;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+#constellation-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+.lead-page {
+  min-height: 100vh;
+  padding: 22px clamp(16px, 4vw, 60px) 54px;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(247, 184, 36, 0.14), transparent 28%),
+    repeating-linear-gradient(135deg, rgba(247, 184, 36, 0.04) 0 1px, transparent 1px 9px);
+}
+
+.lead-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; width: min(1080px, 100%); margin: 0 auto 42px;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; font-size: 19px; font-weight: 900; color: var(--text);
+}
+.brand img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; }
+.brand b { color: var(--gold); }
+
+.back-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 20px; border-radius: 8px;
+  color: #fff5d6; background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(247, 184, 36, 0.55);
+  text-decoration: none; font-size: 14px; font-weight: 900;
+  transition: background 0.2s;
+}
+.back-link:hover { background: rgba(247,184,36,0.12); }
+
+.form-hero {
+  display: grid; justify-items: center; gap: 12px;
+  width: min(1080px, 100%); margin: 0 auto 28px; text-align: center;
+}
+.form-hero h1 {
+  margin: 0; font-size: clamp(36px, 6vw, 72px); line-height: 0.95;
+  font-family: "Fraunces", Georgia, serif; font-weight: 900;
+}
+.form-hero h1 span {
+  color: transparent;
+  background: linear-gradient(90deg, var(--gold), #ffef9a, var(--blue));
+  -webkit-background-clip: text; background-clip: text;
+}
+.form-hero p { margin: 0; color: var(--muted); line-height: 1.8; }
+.form-hero strong { color: var(--gold); }
+
+.lead-shell {
+  display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 26px;
+  width: min(1080px, 100%); margin: 0 auto;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid rgba(247, 184, 36, 0.14); border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(247, 184, 36, 0.11), rgba(20, 168, 255, 0.055)),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.offer-panel {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(20px, 4vw, 38px);
+}
+.offer-label {
+  display: inline-flex; align-self: flex-start; padding: 7px 12px;
+  border: 1px solid rgba(247, 184, 36, 0.5); border-radius: 8px;
+  color: #ffdb70; background: rgba(247, 184, 36, 0.1);
+  font-size: 12px; font-weight: 900; text-transform: uppercase;
+}
+.offer-panel h2 {
+  margin: 18px 0 8px; font-size: clamp(28px, 4vw, 42px); line-height: 1.1;
+  font-family: "Fraunces", Georgia, serif; font-weight: 900;
+}
+.offer-panel h2 span { padding: 0 8px; color: #06110b; background: var(--gold); border-radius: 8px; }
+.offer-value { margin: 0 0 30px; color: #fff2d2; }
+.offer-value s { color: #7a8399; }
+.offer-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.offer-list li { color: #fff2d2; font-size: 15px; }
+.offer-list li::before {
+  content: "✓"; display: inline-grid; place-items: center;
+  width: 22px; height: 22px; margin-right: 10px; border-radius: 8px;
+  color: #06110b; background: var(--gold); font-weight: 900;
+}
+.mini-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.mini-badges span {
+  padding: 8px 12px; border: 1px solid rgba(247, 184, 36, 0.22); border-radius: 8px;
+  color: #f7d97a; background: rgba(247, 184, 36, 0.09); font-size: 13px; font-weight: 800;
+}
+
+.form-panel {
+  padding: clamp(18px, 3vw, 28px); border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(247, 184, 36, 0.14);
+}
+.lead-form { display: grid; gap: 14px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.field { display: grid; gap: 7px; }
+.field label { color: #ffe7a3; font-size: 12px; font-weight: 900; }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: 0 14px;
+  border: 1px solid rgba(247, 184, 36, 0.22); border-radius: 8px;
+  color: #fff; background: rgba(255, 255, 255, 0.075); font: inherit; outline: none;
+}
+.field textarea { min-height: 88px; padding: 14px; resize: vertical; }
+.field select option { color: #111827; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: rgba(247, 184, 36, 0.74); box-shadow: 0 0 0 3px rgba(247, 184, 36, 0.12);
+}
+.submit-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 52px; margin-top: 6px; border: 0; border-radius: 8px;
+  color: #03180b; background: linear-gradient(180deg, #ffe58a, var(--gold));
+  box-shadow: 0 16px 34px rgba(247, 184, 36, 0.25);
+  font-size: 15px; font-weight: 900; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(247, 184, 36, 0.35); }
+.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.secure-note { margin: 0; color: #8c96ad; font-size: 12px; text-align: center; }
+
+.form-status { display: none; padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; }
+.form-status.show { display: block; }
+.form-status.success { color: #fff2c0; background: rgba(247, 184, 36, 0.1); border: 1px solid rgba(247, 184, 36, 0.28); }
+.form-status.error { color: #ffc2ca; background: rgba(255, 91, 108, 0.1); border: 1px solid rgba(255, 91, 108, 0.28); }
+
+.guarantee-line {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: min(720px, 100%); margin: 34px auto 0; color: #ffda70; text-align: center;
+}
+.guarantee-line::before, .guarantee-line::after {
+  content: ""; height: 1px; flex: 1; background: var(--line);
+}
+
+.float-wa {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40; display: inline-flex;
+  align-items: center; gap: 8px; padding: 13px 16px; border-radius: 8px;
+  color: #03180b; background: #25d366; box-shadow: 0 14px 40px rgba(37,211,102,0.24);
+  text-decoration: none; font-weight: 900;
+}
+.float-wa small { font-size: 12px; }
+
+@media (max-width: 980px) {
+  .lead-shell { grid-template-columns: 1fr; }
+}
+@media (max-width: 740px) {
+  .lead-top { flex-direction: column; align-items: flex-start; }
+  .back-link { width: 100%; }
+  .field-row { grid-template-columns: 1fr; }
+  .float-wa { right: 12px; bottom: 12px; padding: 12px; }
+  .float-wa small { display: none; }
+}
+</style>
+</head>
+<body>
+<canvas id="constellation-bg" aria-hidden="true"></canvas>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="float-wa" target="_blank">💬 <small>Chat with us</small></a>
+
+<div class="lead-page">
+  <div class="lead-top">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Dropship Guru" onerror="this.style.display='none'">
+      <span>Dropship <b>Guru</b></span>
+    </a>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <div class="form-hero">
+    <h1>Start Your <span>Dropshipping</span> Journey</h1>
+    <p>Fill the form below and get a <strong>FREE consultation call</strong> with our experts.</p>
+  </div>
+
+  <div class="lead-shell">
+    <!-- Left: Offer -->
+    <div class="offer-panel">
+      <span class="offer-label">🔥 Limited Time Offer</span>
+      <h2>Free <span>Strategy</span> Session</h2>
+      <p class="offer-value">Worth <s>₹4,999</s> — <strong style="color:var(--gold)">FREE Today</strong></p>
+      <ul class="offer-list">
+        <li>Personalized business plan</li>
+        <li>Winning product recommendations</li>
+        <li>Store setup guidance</li>
+        <li>Marketing roadmap for first sale</li>
+        <li>1-on-1 expert mentorship</li>
+      </ul>
+      <div class="mini-badges">
+        <span>✅ 100% Free</span>
+        <span>⚡ Fast Response</span>
+        <span>🇮🇳 India Focused</span>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="form-panel">
+      <form class="lead-form" id="leadForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="phone">WhatsApp Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit number" required pattern="[0-9]{10}">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Your city">
+        </div>
+        <div class="field">
+          <label for="plan">Which Plan Interests You?</label>
+          <select id="plan" name="plan">
+            <option value="">Select a plan</option>
+            <option>Starter Plan</option>
+            <option>Growth Plan</option>
+            <option>Pro Plan</option>
+            <option>Diamond Plan</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Your Budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select budget</option>
+            <option>₹5,000 - ₹15,000</option>
+            <option>₹15,000 - ₹30,000</option>
+            <option>₹30,000 - ₹50,000</option>
+            <option>₹50,000+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Tell Us About Your Goals</label>
+          <textarea id="message" name="message" placeholder="What do you want to achieve?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Book My Free Consultation →</button>
+        <p class="secure-note">🔒 Your information is 100% safe and secure.</p>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="guarantee-line">
+    <span>💯 No Spam · No Pressure · Just Real Guidance</span>
+  </div>
+</div>
+
+<script>
+// Constellation background
+(function(){
+  const canvas = document.getElementById('constellation-bg');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  const COUNT = 70, CONNECT_DIST = 160, GOLD = 'rgba(247,184,36,', GOLD_S = '#f7b824';
+  function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  function makeNode(){ return { x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-0.5)*0.45, vy:(Math.random()-0.5)*0.45, r: Math.random()*1.8+0.8, pulse: Math.random()*Math.PI*2 }; }
+  function init(){ resize(); nodes = Array.from({length: COUNT}, makeNode); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    nodes.forEach(n => { n.x+=n.vx; n.y+=n.vy; n.pulse+=0.02; if(n.x<0||n.x>W)n.vx*=-1; if(n.y<0||n.y>H)n.vy*=-1; });
+    for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<CONNECT_DIST){ const a=(1-d/CONNECT_DIST)*0.55; ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.strokeStyle=GOLD+a+')'; ctx.lineWidth=0.7; ctx.stroke(); }
+    }
+    nodes.forEach(n => { const g=0.6+0.4*Math.sin(n.pulse); ctx.beginPath(); ctx.arc(n.x,n.y,n.r*g,0,Math.PI*2); ctx.fillStyle=GOLD_S; ctx.globalAlpha=0.7+0.3*g; ctx.fill(); ctx.globalAlpha=1; });
+    requestAnimationFrame(draw);
+  }
+  addEventListener('resize', resize); init(); draw();
+})();
+
+// ===== FORM → GOOGLE SHEET =====
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwT5fF38X_41T3w0kMLHIyoMug8kQdc4KyV3h8M6TvUskq2mKwLbpYjvkqOxdYcowkMMw/exec";
+
+const form = document.getElementById('leadForm');
+const status = document.getElementById('formStatus');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const btn = form.querySelector('.submit-btn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  const data = {
+    name: document.getElementById('name').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    city: document.getElementById('city').value,
+    plan: document.getElementById('plan').value,
+    budget: document.getElementById('budget').value,
+    message: document.getElementById('message').value,
+    date: new Date().toLocaleString('en-IN')
+  };
+
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    status.className = 'form-status show success';
+    status.innerHTML = '✅ Thank you, <b>' + data.name + '</b>! We received your request and will contact you on WhatsApp soon.';
+    form.reset();
+    btn.textContent = 'Book My Free Consultation →';
+    btn.disabled = false;
+  })
+  .catch(() => {
+    status.className = 'form-status show error';
+    status.innerHTML = '❌ Something went wrong. Please try again or WhatsApp us directly.';
+    btn.textContent = 'Book My Free Consultation →';
+    btn.disabled = false;
+  });
+});
+</script>
+</body>
+</html>
